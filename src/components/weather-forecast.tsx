@@ -75,7 +75,7 @@ export function WeatherForecast({ data }: WeatherForecastProps) {
                   <ArrowDown className='md:mr-1 h-4 w-4' />
                   {formatTemp(day.temp_min)}
                 </span>
-                <span className='flex items-center text-red-500 mr-6 md:mr-0'>
+                <span className='flex items-center text-red-500 md:mr-0'>
                   <ArrowUp className='md:mr-1 h-4 w-4' />
                   {formatTemp(day.temp_max)}
                 </span>
