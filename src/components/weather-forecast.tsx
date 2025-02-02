@@ -1,7 +1,7 @@
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { ArrowDown, ArrowUp, Droplets, Wind } from "lucide-react";
-import { format } from "date-fns";
-import type { ForecastData } from "@/api/types";
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { ArrowDown, ArrowUp, Droplets, Wind } from 'lucide-react';
+import { format } from 'date-fns';
+import type { ForecastData } from '@/api/types';
 
 interface WeatherForecastProps {
   data: ForecastData;
@@ -24,7 +24,7 @@ interface DailyForecast {
 export function WeatherForecast({ data }: WeatherForecastProps) {
   // Group forecast by day and get daily min/max
   const dailyForecasts = data.list.reduce((acc, forecast) => {
-    const date = format(new Date(forecast.dt * 1000), "yyyy-MM-dd");
+    const date = format(new Date(forecast.dt * 1000), 'yyyy-MM-dd');
 
     if (!acc[date]) {
       acc[date] = {
@@ -55,40 +55,42 @@ export function WeatherForecast({ data }: WeatherForecastProps) {
         <CardTitle>5-Day Forecast</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="grid gap-4">
+        <div className='grid gap-4'>
           {nextDays.map((day) => (
             <div
               key={day.date}
-              className="grid grid-cols-3 items-center gap-4 rounded-lg border p-4"
+              className='grid grid-cols-3 items-center gap-4 rounded-lg border p-4'
             >
               <div>
-                <p className="font-medium">
-                  {format(new Date(day.date * 1000), "EEE, MMM d")}
+                <p className='font-medium'>
+                  {format(new Date(day.date * 1000), 'EEE, MMM d')}
                 </p>
-                <p className="text-sm text-muted-foreground capitalize">
+                <p className='text-sm text-muted-foreground capitalize'>
                   {day.weather.description}
                 </p>
               </div>
 
-              <div className="flex justify-center gap-4">
-                <span className="flex items-center text-blue-500">
-                  <ArrowDown className="md:mr-1 h-4 w-4" />
+              <div className='flex justify-center gap-2'>
+                <span className='flex items-center text-blue-500'>
+                  <ArrowDown className='md:mr-1 h-4 w-4' />
                   {formatTemp(day.temp_min)}
                 </span>
-                <span className="flex items-center text-red-500 mr-6 md:mr-0">
-                  <ArrowUp className="md:mr-1 h-4 w-4" />
+                <span className='flex items-center text-red-500 mr-6 md:mr-0'>
+                  <ArrowUp className='md:mr-1 h-4 w-4' />
                   {formatTemp(day.temp_max)}
                 </span>
               </div>
 
-              <div className="flex justify-end gap-4">
-                <span className="flex items-center gap-[2px]">
-                  <Droplets className="h-4 w-4 text-violet-700" />
-                  <span className="text-sm">{day.humidity}%</span>
+              <div className='flex justify-end gap-2'>
+                <span className='flex items-center gap-[2px]'>
+                  <Droplets className='h-4 w-4 text-violet-700' />
+                  <span className='text-sm'>{day.humidity}%</span>
                 </span>
-                <span className="flex items-center gap-1">
-                  <Wind className="h-4 w-4 text-blue-500" />
-                  <span className="text-sm">{(day.wind*3.6).toFixed(2)}km/h</span>
+                <span className='flex items-center gap-1'>
+                  <Wind className='h-4 w-4 text-blue-500' />
+                  <span className='text-sm'>
+                    {(day.wind * 3.6).toFixed(2)}km/h
+                  </span>
                 </span>
               </div>
             </div>
