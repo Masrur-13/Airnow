@@ -70,7 +70,7 @@ export function WeatherForecast({ data }: WeatherForecastProps) {
                 </p>
               </div>
 
-              <div className='flex justify-center gap-2'>
+              <div className='flex justify-center text-sm'>
                 <span className='flex items-center text-blue-500'>
                   <ArrowDown className='md:mr-1 h-4 w-4' />
                   {formatTemp(day.temp_min)}
@@ -81,7 +81,7 @@ export function WeatherForecast({ data }: WeatherForecastProps) {
                 </span>
               </div>
 
-              <div className='flex justify-end gap-2'>
+              <div className='flex justify-between text-sm'>
                 <span className='flex items-center gap-[2px]'>
                   <Droplets className='h-4 w-4 text-violet-700' />
                   <span className='text-sm'>{day.humidity}%</span>
